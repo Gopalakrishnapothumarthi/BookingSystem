@@ -3,7 +3,7 @@ package org;
 import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class Appointment {
+public class Appointment {
     private static final AtomicInteger idGenerator = new AtomicInteger();
     private final int id;
     private Treatment treatment;
@@ -42,9 +42,8 @@ class Appointment {
     }
 
     public String getDetails() {
-        return "Appointment ID: " + id + ", Treatment: " + treatment.getName() + ", Date: " + dateTime +
-                ", Patient: " + (patient != null ? patient.getName() : "None") +
-                ", Physiotherapist: " + physiotherapist.getName() + ", Status: " + status;
+        String patientDetails = (patient == null) ? "None" : "ID: " + patient.getId() + ", Name: " + patient.getName();
+        return "Appointment ID: " + id + ", Treatment: " + treatment.getName() + ", Date: " + dateTime + ", Patient: " + patientDetails + ", Physiotherapist: " + physiotherapist.getName() + ", Status: " + status;
     }
 
     public int getId() {
@@ -74,5 +73,9 @@ class Appointment {
     public boolean conflictsWith(Appointment other) {
         return this.dateTime.equals(other.dateTime);
     }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }
 

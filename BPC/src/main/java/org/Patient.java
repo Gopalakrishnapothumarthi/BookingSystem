@@ -1,7 +1,9 @@
 package org;
-import java.util.*;
+
 import java.time.LocalDateTime;
-class Patient {
+import java.util.*;
+
+public class Patient {
     private int id;
     private String name;
     private String address;

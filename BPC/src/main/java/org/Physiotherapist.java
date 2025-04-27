@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 class Physiotherapist {
-    private int id;
+    int id;
     private String name;
     private String address;
     private String contactInfo;
